@@ -21,6 +21,6 @@ jobs:
     - name: Verilog Version
       run:  iverilog -V
 
-    - name: Verilog Version
+    - name: Clock on positive and negative edges
       run: rm -f countUp; iverilog -g2012 -o countUp countUp.sv countUp.tb && timeout 1m ./countUp
 
