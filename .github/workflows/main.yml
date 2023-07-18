@@ -1,0 +1,26 @@
+# Test $d
+
+name: Test
+
+on:
+  push:
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        ref: 'main'
+
+    - name: Verilog
+      run:  sudo apt -y install iverilog
+
+    - name: Verilog Version
+      run:  iverilog -V
+
+    - name: Verilog Version
+      run: rm -f countUp; iverilog -g2012 -o countUp countUp.sv countUp.tb && timeout 1m ./countUp
+
